@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   ** 元注解 **　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Tar">
+  <meta name="description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   元注解　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Target">
 <meta name="keywords" content="Java,注解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java注解">
 <meta property="og:url" content="http://yoursite.com/2018/05/24/Java注解/index.html">
 <meta property="og:site_name" content="二向箔">
-<meta property="og:description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   ** 元注解 **　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Tar">
+<meta property="og:description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   元注解　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Target">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-18T08:57:23.110Z">
+<meta property="og:updated_time" content="2019-06-18T12:14:32.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解">
-<meta name="twitter:description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   ** 元注解 **　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Tar">
+<meta name="twitter:description" content="注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。Java提供了四种元注解，专门负责新注解的创建工作。   元注解　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：　　　　1. @Target">
 
 
 
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-18 16:57:23" itemprop="dateModified" datetime="2019-06-18T16:57:23+08:00">2019-06-18</time>
+                <time title="修改时间：2019-06-18 20:14:32" itemprop="dateModified" datetime="2019-06-18T20:14:32+08:00">2019-06-18</time>
               
             
           </span>
@@ -454,25 +454,24 @@
 
       
         <p>　　注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。<br>Java提供了四种元注解，专门负责新注解的创建工作。  </p>
-<p><strong>** 元注解 **</strong><br>　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：<br>　　　　1. @Target<br>　　　　2. @Retention<br>　　　　3. @Documented<br>　　　　4. @Inherited<br>　　这些类型和它们所支持的类在java.lang.annotation包中可以找到。下面我们看一下每个元注解的作用和相应分参数的使用说明。</p>
+<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><p>　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：<br>　　　　1. @Target<br>　　　　2. @Retention<br>　　　　3. @Documented<br>　　　　4. @Inherited<br>　　这些类型和它们所支持的类在java.lang.annotation包中可以找到。下面我们看一下每个元注解的作用和相应分参数的使用说明。</p>
 <a id="more"></a>
-<h6 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h6><p>　　@Target说明了Annotation所修饰的对象范围：Annotation可被用于 packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。在Annotation类型的声明中使用了target可更加明晰其修饰的目标。<br>　　作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方，取值(ElementType)有：<br>　　　　1. CONSTRUCTOR:用于描述构造器<br>　　　　2. FIELD:用于描述域<br>　　　　3. LOCAL_VARIABLE:用于描述局部变量<br>　　　　4. METHOD:用于描述方法<br>　　　　5. PACKAGE:用于描述包<br>　　　　6. PARAMETER:用于描述参数<br>　　　　7. TYPE:用于描述类、接口(包括注解类型) 或enum声明  </p>
+<h4 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h4><p>　　@Target说明了Annotation所修饰的对象范围：Annotation可被用于 packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。在Annotation类型的声明中使用了target可更加明晰其修饰的目标。<br>　　作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方，取值(ElementType)有：<br>　　　　1. CONSTRUCTOR:用于描述构造器<br>　　　　2. FIELD:用于描述域<br>　　　　3. LOCAL_VARIABLE:用于描述局部变量<br>　　　　4. METHOD:用于描述方法<br>　　　　5. PACKAGE:用于描述包<br>　　　　6. PARAMETER:用于描述参数<br>　　　　7. TYPE:用于描述类、接口(包括注解类型) 或enum声明  </p>
 <p>使用示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/***</span><br><span class="line"> *</span><br><span class="line"> * 实体注解接口</span><br><span class="line"> */</span><br><span class="line">@Target(value = &#123;ElementType.TYPE&#125;)</span><br><span class="line">@Retention(value = RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Entity &#123;</span><br><span class="line">    /***</span><br><span class="line">     * 实体默认firstLevelCache属性为false</span><br><span class="line">     * @return boolean</span><br><span class="line">     */</span><br><span class="line">    boolean firstLevelCache() default false;</span><br><span class="line">    /***</span><br><span class="line">     * 实体默认secondLevelCache属性为false</span><br><span class="line">     * @return boolean</span><br><span class="line">     */</span><br><span class="line">    boolean secondLevelCache() default true;</span><br><span class="line">    /***</span><br><span class="line">     * 表名默认为空</span><br><span class="line">     * @return String</span><br><span class="line">     */</span><br><span class="line">    String tableName() default &quot;&quot;;</span><br><span class="line">    /***</span><br><span class="line">     * 默认以&quot;&quot;分割注解</span><br><span class="line">     */</span><br><span class="line">    String split() default &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h6><p>　　@Retention定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。<br>　　作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）,取值（RetentionPoicy）有：<br>　　　　1. SOURCE:在源文件中有效（即源文件保留）<br>　　　　2. CLASS:在class文件中有效（即class保留）<br>　　　　3. RUNTIME:在运行时有效（即运行时保留）  </p>
+<h4 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h4><p>　　@Retention定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。<br>　　作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）,取值（RetentionPoicy）有：<br>　　　　1. SOURCE:在源文件中有效（即源文件保留）<br>　　　　2. CLASS:在class文件中有效（即class保留）<br>　　　　3. RUNTIME:在运行时有效（即运行时保留）  </p>
 <p>使用示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/***</span><br><span class="line"> * 字段注解接口</span><br><span class="line"> */</span><br><span class="line">@Target(value = &#123;ElementType.FIELD&#125;)//注解可以被添加在属性上</span><br><span class="line">@Retention(value = RetentionPolicy.RUNTIME)//注解保存在JVM运行时刻,能够在运行时刻通过反射API来获取到注解的信息</span><br><span class="line">public @interface Column &#123;</span><br><span class="line">    String name();//注解的name属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Column注解的的RetentionPolicy的属性值是RUNTIME,这样注解处理器可以通过反射，获取到该注解的属性值，从而去做一些运行时的逻辑处理</p>
-<p>@Documented<br>　　@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</p>
-<p>@Inherited<br>　　@Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。<br>　　注意：@Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation。<br>　　当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。</p>
-<p><strong>** 自定义注解 **</strong><br>　　使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。</p>
+<h4 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h4><p>　　@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</p>
+<h4 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h4><p>　　@Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。<br>　　注意：@Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation。<br>　　当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。</p>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><p>　　使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。</p>
 <p>　　定义注解格式：public @interface 注解名 {定义体}</p>
 <p>　　注解参数的可支持数据类型：<br>　　　　1. 所有基本数据类型（int,float,boolean,byte,double,char,long,short)<br>　　　　2. String类型<br>　　　　3. Class类型<br>　　　　4. enum类型<br>　　　　5. Annotation类型<br>　　　　6. 以上所有类型的数组  </p>
 <p>　　Annotation类型里面的参数该怎么设定:<br>　　第一,只能用public或默认(default)这两个访问权修饰.例如,String value();这里把方法设为defaul默认类型；<br>　　第二,参数成员只能用基本类型byte,short,char,int,long,float,double,boolean八种基本数据类型和 String,Enum,Class,annotations等数据类型,以及这一些类型的数组.例如,String value();这里的参数成员就为String;<br>　　第三,如果只有一个参数成员,最好把参数名称设为”value”,后加小括号.例:下面的例子FruitName注解就只有一个参数成员。</p>
-<p>　　简单的自定义注解和使用注解实例：</p>
-<p>示例1：</p>
+<p>　　简单的自定义注解和使用注解实例：<br>示例1：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/***</span><br><span class="line"> *主键注解接口</span><br><span class="line"> */</span><br><span class="line">@Target(value = &#123;ElementType.FIELD&#125;)</span><br><span class="line">@Retention(value = RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Id &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>示例2：</p>
@@ -664,7 +663,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -728,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Target"><span class="nav-number">1.</span> <span class="nav-text">@Target</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Retention"><span class="nav-number">2.</span> <span class="nav-text">@Retention</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#元注解"><span class="nav-number">1.</span> <span class="nav-text">元注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Target"><span class="nav-number">1.1.</span> <span class="nav-text">@Target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Retention"><span class="nav-number">1.2.</span> <span class="nav-text">@Retention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Documented"><span class="nav-number">1.3.</span> <span class="nav-text">@Documented</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inherited"><span class="nav-number">1.4.</span> <span class="nav-text">@Inherited</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义注解"><span class="nav-number">2.</span> <span class="nav-text">自定义注解</span></a></li></ol></div>
             
 
           </div>

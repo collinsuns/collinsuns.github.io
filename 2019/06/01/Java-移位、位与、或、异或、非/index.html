@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 ** 原码、反码、补码 ** 原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000">
+  <meta name="description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 原码、反码、补码原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000000 000">
+<meta name="keywords" content="Java,位运算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 移位、位与、或、异或、非">
 <meta property="og:url" content="http://yoursite.com/2019/06/01/Java-移位、位与、或、异或、非/index.html">
 <meta property="og:site_name" content="二向箔">
-<meta property="og:description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 ** 原码、反码、补码 ** 原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000">
+<meta property="og:description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 原码、反码、补码原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000000 000">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-18T08:50:58.009Z">
+<meta property="og:updated_time" content="2019-06-18T12:05:24.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 移位、位与、或、异或、非">
-<meta name="twitter:description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 ** 原码、反码、补码 ** 原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000">
+<meta name="twitter:description" content="Java位运算符有：左移( &amp;lt;&amp;lt; )、右移( &amp;gt;&amp;gt; ) 、无符号右移( &amp;gt;&amp;gt;&amp;gt; ) 、位与( &amp;amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。 原码、反码、补码原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。 100000000 00000000 00000000 000">
 
 
 
@@ -387,11 +388,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-18 16:50:58" itemprop="dateModified" datetime="2019-06-18T16:50:58+08:00">2019-06-18</time>
+                <time title="修改时间：2019-06-18 20:05:24" itemprop="dateModified" datetime="2019-06-18T20:05:24+08:00">2019-06-18</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -435,8 +454,7 @@
 
       
         <p>Java位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</p>
-<p><strong>** 原码、反码、补码 **</strong></p>
-<p>原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。</p>
+<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><p>原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00000000 00000000 00000000 00000101   是5的原码</span><br></pre></td></tr></table></figure>
 
 <p>反码：将二进制数按位取反，所得的新二进制数称为原二进制数的反码。即：1变0; 0变1</p>
@@ -450,23 +468,19 @@
 <p>另一种是一些程序员告诉你的：用二进制数的最高位表示符号，最高位是0，表示正数，最高位是1，表示负数。<font color="#FF0000" size="4" face="黑体">这种说法本身没错，可是如果没有下文，那么它就是错的。</font>至少它不能解释，为什么字符类型的-1用二进制表示是“1111 1111”(16进制为FF)；而不是我们更能理解的“1000 0001”。（为什么说后者更好理解呢？因为既然说最高位是1时表示负数，那1000 0001不是正好是-1吗？</p>
 <p>其实对于计算机来说没有正负二进制之分，比如一个8位的二进制1111 1001，即可以表示-7，也可以表示249，最终得到的结果是正是负取决于开发者本人如何定义这个变量（数据的类型，比如int，unsigned，long，double等等），如果你定义的是一个负值，则补码先减1得到反码1111 1000，然后反码取反得到原码0000 0111，原码转换二进制为7，由于你定义的是一个负数则添加负号得到-7返回</p>
 <a id="more"></a>
-
-<p><strong>** 左移(&lt;&lt;) **</strong></p>
-<p>先看一个例子：5左移2位</p>
+<h1 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移(&lt;&lt;)"></a>左移(&lt;&lt;)</h1><p>先看一个例子：5左移2位</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class DisplacementOperatorTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 5左移2位的结果为20</span><br><span class="line">        System.out.println(5 &lt;&lt; 2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面是具体操作过程（Java整数默认int类型，二进制为32位）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">5的二进制：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line"></span><br><span class="line">左移2位，低位补0后，得到：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0001 0100</span><br><span class="line"></span><br><span class="line">换算成10进制为：20</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 右移(&gt;&gt;) **</strong></p>
-<p>先看一个例子：5右移2位</p>
+<h1 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移(&gt;&gt;)"></a>右移(&gt;&gt;)</h1><p>先看一个例子：5右移2位</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class DisplacementOperatorTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 5右移2位的结果为1</span><br><span class="line">        System.out.println(5 &gt;&gt; 2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>下面是具体操作过程（Java整数默认int类型，二进制为32位）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">5的二进制：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line"></span><br><span class="line">右移2位，高位补0后，得到：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0000 0001</span><br><span class="line"></span><br><span class="line">换算成10进制为：1</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 无符号右移(&gt;&gt;&gt;) **</strong></p>
-<ul>
+<h1 id="无符号右移-gt-gt-gt"><a href="#无符号右移-gt-gt-gt" class="headerlink" title="无符号右移(&gt;&gt;&gt;)"></a>无符号右移(&gt;&gt;&gt;)</h1><ul>
 <li>正数右移，高位补0</li>
 <li>正数左移，低位补0</li>
 <li>负数右移，高位补1</li>
@@ -480,20 +494,16 @@
 <p>下面是具体操作过程（Java整数默认int类型，二进制为32位）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">5的二进制：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line"></span><br><span class="line">5右移3位，高位补0后，换算成十进制得0：</span><br><span class="line">0000 0000 0000 0000 0000 0000 0000 0000</span><br><span class="line"></span><br><span class="line">-5得二进制：</span><br><span class="line">1111 1111 1111 1111 1111 1111 1111 1011</span><br><span class="line"></span><br><span class="line">-5右移3位，高位补1后，换算成十进制得-1</span><br><span class="line">1111 1111 1111 1111 1111 1111 1111 1111</span><br><span class="line"></span><br><span class="line">-5无符号右移3位，高位补0后，换算成十进制得536870911</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 位与(&amp;) **</strong></p>
-<p>第一个操作数的的第n位于第二个操作数的第n位如果都是1，那么结果的第n为也为1，否则为0</p>
+<h1 id="位与-amp"><a href="#位与-amp" class="headerlink" title="位与(&amp;)"></a>位与(&amp;)</h1><p>第一个操作数的的第n位于第二个操作数的第n位如果都是1，那么结果的第n为也为1，否则为0</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5转换为二进制：0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">3转换为二进制：0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line"></span><br><span class="line">1转换为二进制：0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 位或(|) **</strong></p>
-<p>第一个操作数的的第n位于第二个操作数的第n位 只要有一个是1，那么结果的第n为也为1，否则为0</p>
+<h1 id="位或"><a href="#位或" class="headerlink" title="位或(|)"></a>位或(|)</h1><p>第一个操作数的的第n位于第二个操作数的第n位 只要有一个是1，那么结果的第n为也为1，否则为0</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5转换为二进制：0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">3转换为二进制：0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line"></span><br><span class="line">7转换为二进制：0000 0000 0000 0000 0000 0000 0000 0111</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 异或(^) **</strong></p>
-<p>第一个操作数的的第n位于第二个操作数的第n位 相反，那么结果的第n为也为1，否则为0</p>
+<h1 id="异或"><a href="#异或" class="headerlink" title="异或(^)"></a>异或(^)</h1><p>第一个操作数的的第n位于第二个操作数的第n位 相反，那么结果的第n为也为1，否则为0</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5转换为二进制：0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">3转换为二进制：0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line"></span><br><span class="line">6转换为二进制：0000 0000 0000 0000 0000 0000 0000 0110</span><br></pre></td></tr></table></figure>
 
-<p><strong>** 位非(~) **</strong></p>
-<p>操作数的第n位为1，那么结果的第n位为0，反之</p>
+<h1 id="位非"><a href="#位非" class="headerlink" title="位非(~)"></a>位非(~)</h1><p>操作数的第n位为1，那么结果的第n位为0，反之</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5转换为二进制：0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line"></span><br><span class="line">-6转换为二进制：1111 1111 1111 1111 1111 1111 1111 1010</span><br></pre></td></tr></table></figure>
 
 
@@ -516,6 +526,17 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/位运算/" rel="tag"># 位运算</a>
+          
+        </div>
       
 
       
@@ -585,8 +606,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,7 +671,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -694,6 +726,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原码、反码、补码"><span class="nav-number">1.</span> <span class="nav-text">原码、反码、补码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#左移-lt-lt"><span class="nav-number">2.</span> <span class="nav-text">左移(&lt;&lt;)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#右移-gt-gt"><span class="nav-number">3.</span> <span class="nav-text">右移(&gt;&gt;)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无符号右移-gt-gt-gt"><span class="nav-number">4.</span> <span class="nav-text">无符号右移(&gt;&gt;&gt;)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位与-amp"><span class="nav-number">5.</span> <span class="nav-text">位与(&amp;)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位或"><span class="nav-number">6.</span> <span class="nav-text">位或(|)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异或"><span class="nav-number">7.</span> <span class="nav-text">异或(^)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位非"><span class="nav-number">8.</span> <span class="nav-text">位非(~)</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
