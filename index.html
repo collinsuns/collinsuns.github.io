@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/Java-移位、位与、或、异或、非/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steven Ke">
@@ -344,7 +344,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/06/01/Java-移位、位与、或、异或、非/" class="post-title-link" itemprop="url">Java 移位、位与、或、异或、非</a>
+                <a href="/2019/06/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -369,46 +369,12 @@
                 
               
 
-              <time title="创建时间：2019-06-01 11:40:52" itemprop="dateCreated datePublished" datetime="2019-06-01T11:40:52+08:00">2019-06-01</time>
+              <time title="创建时间：2019-06-21 19:28:34" itemprop="dateCreated datePublished" datetime="2019-06-21T19:28:34+08:00">2019-06-21</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-18 20:05:24" itemprop="dateModified" datetime="2019-06-18T20:05:24+08:00">2019-06-18</time>
-              
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -422,8 +388,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/06/01/Java-移位、位与、或、异或、非/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/01/Java-移位、位与、或、异或、非/" itemprop="commentCount"></span>
+                <a href="/2019/06/21/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/21/hello-world/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,222 +418,22 @@
 
       
         
-          <p>Java位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</p>
-<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><p>原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00000000 00000000 00000000 00000101   是5的原码</span><br></pre></td></tr></table></figure>
-
-<p>反码：将二进制数按位取反，所得的新二进制数称为原二进制数的反码。即：1变0; 0变1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11111111 11111111 11111111 11111010   是5的反码</span><br></pre></td></tr></table></figure>
-
-<p>补码：反码加1称为补码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11111111 11111111 11111111 11111011   是5的补码</span><br></pre></td></tr></table></figure>
-
-<p>在学习位移之前，我们先了解负数二进制的表示，你可能听过两种不同的回答。</p>
-<p>一种是教科书，它会告诉你：计算机用“补码”表示负数。例如上面5的补码：11111111 11111111 11111111 11111011表示-5</p>
-<p>另一种是一些程序员告诉你的：用二进制数的最高位表示符号，最高位是0，表示正数，最高位是1，表示负数。<font color="#FF0000" size="4" face="黑体">这种说法本身没错，可是如果没有下文，那么它就是错的。</font>至少它不能解释，为什么字符类型的-1用二进制表示是“1111 1111”(16进制为FF)；而不是我们更能理解的“1000 0001”。（为什么说后者更好理解呢？因为既然说最高位是1时表示负数，那1000 0001不是正好是-1吗？</p>
-<p>其实对于计算机来说没有正负二进制之分，比如一个8位的二进制1111 1001，即可以表示-7，也可以表示249，最终得到的结果是正是负取决于开发者本人如何定义这个变量（数据的类型，比如int，unsigned，long，double等等），如果你定义的是一个负值，则补码先减1得到反码1111 1000，然后反码取反得到原码0000 0111，原码转换二进制为7，由于你定义的是一个负数则添加负号得到-7返回</p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/06/01/Java-移位、位与、或、异或、非/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-    
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-    
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/Java注解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steven Ke">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="二向箔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/05/24/Java注解/" class="post-title-link" itemprop="url">Java注解</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-24 14:05:25" itemprop="dateCreated datePublished" datetime="2018-05-24T14:05:25+08:00">2018-05-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-18 20:14:32" itemprop="dateModified" datetime="2019-06-18T20:14:32+08:00">2019-06-18</time>
-              
-            
-          </span>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/05/24/Java注解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/24/Java注解/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>　　注解作用：每当你创建描述符性质的类或者接口时,一旦其中包含重复性的工作，就可以考虑使用注解来简化与自动化该过程。<br>Java提供了四种元注解，专门负责新注解的创建工作。  </p>
-<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><p>　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：<br>　　　　1. @Target<br>　　　　2. @Retention<br>　　　　3. @Documented<br>　　　　4. @Inherited<br>　　这些类型和它们所支持的类在java.lang.annotation包中可以找到。下面我们看一下每个元注解的作用和相应分参数的使用说明。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/05/24/Java注解/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -749,52 +515,14 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
             </nav>
           
