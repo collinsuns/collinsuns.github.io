@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/website_33.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/website_16.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Java日志概述　　对于一个应用程序来说日志记录是必不可少的一部分。线上问题追踪，基于日志的业务逻辑统计分析等都离不日志。java领域存在多种日志框架，目前常用的日志框架包括Log4j 1，Log4j 2，Commons Logging，Slf4j，Logback，Jul。 Java常用日志框架类别 Log4j： Apache Log4j是一个基于Java的日志记录工具。它是由Ceki Gülcü">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java日志框架">
+<meta property="og:url" content="http://yoursite.com/2019/07/28/Java日志框架/index.html">
+<meta property="og:site_name" content="二向箔">
+<meta property="og:description" content="Java日志概述　　对于一个应用程序来说日志记录是必不可少的一部分。线上问题追踪，基于日志的业务逻辑统计分析等都离不日志。java领域存在多种日志框架，目前常用的日志框架包括Log4j 1，Log4j 2，Commons Logging，Slf4j，Logback，Jul。 Java常用日志框架类别 Log4j： Apache Log4j是一个基于Java的日志记录工具。它是由Ceki Gülcü">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E8%87%B3%E6%A1%86%E6%9E%B6-2.jpg">
+<meta property="og:updated_time" content="2019-08-27T13:36:34.272Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java日志框架">
+<meta name="twitter:description" content="Java日志概述　　对于一个应用程序来说日志记录是必不可少的一部分。线上问题追踪，基于日志的业务逻辑统计分析等都离不日志。java领域存在多种日志框架，目前常用的日志框架包括Log4j 1，Log4j 2，Commons Logging，Slf4j，Logback，Jul。 Java常用日志框架类别 Log4j： Apache Log4j是一个基于Java的日志记录工具。它是由Ceki Gülcü">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/28/Java日志框架/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java日志框架 | 二向箔</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">二向箔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">If I press these keys in the right order,I can do anything!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>主页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/Java日志框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steven Ke">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="二向箔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java日志框架
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-28 09:57:05" itemprop="dateCreated datePublished" datetime="2019-07-28T09:57:05+08:00">2019-07-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-27 21:36:34" itemprop="dateModified" datetime="2019-08-27T21:36:34+08:00">2019-08-27</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/28/Java日志框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/28/Java日志框架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Java日志概述"><a href="#Java日志概述" class="headerlink" title="Java日志概述"></a>Java日志概述</h3><p>　　对于一个应用程序来说日志记录是必不可少的一部分。线上问题追踪，基于日志的业务逻辑统计分析等都离不日志。java领域存在多种日志框架，目前常用的日志框架包括Log4j 1，Log4j 2，Commons Logging，Slf4j，Logback，Jul。</p>
+<h3 id="Java常用日志框架类别"><a href="#Java常用日志框架类别" class="headerlink" title="Java常用日志框架类别"></a>Java常用日志框架类别</h3><ul>
+<li><strong>Log4j</strong>： Apache Log4j是一个基于Java的日志记录工具。它是由Ceki Gülcü首创的，现在则是Apache软件基金会的一个项目。 Log4j是几种Java日志框架之一。  </li>
+<li><strong>Log4j 2</strong>： Apache Log4j 2是apache开发的一款Log4j的升级产品。</li>
+<li><strong>Commons Logging</strong>： Apache基金会所属的项目，是一套Java日志接口，之前叫Jakarta Commons Logging，后更名为Commons Logging(简称JCL)。</li>
+<li><strong>Slf4j</strong>： 类似于Commons Logging，是一套简易Java日志门面，本身并无日志的实现。（Simple Logging Facade for Java，缩写Slf4j）。</li>
+<li><strong>Logback</strong>： 一套日志组件的实现(Slf4j阵营)。</li>
+<li><strong>Jul</strong>： (Java Util Logging),自Java1.4以来的官方日志实现。</li>
+</ul>
+<h3 id="日志演化历史"><a href="#日志演化历史" class="headerlink" title="日志演化历史"></a>日志演化历史</h3><ol>
+<li><p>1996年早期，欧洲安全电子市场项目组决定编写它自己的程序跟踪API(Tracing API)。经过不断的完善，这个API终于成为一个十分受欢迎的Java日志软件包，即Log4j。后来Log4j成为Apache基金会项目中的一员，是当时应用最广泛的日志系统，成为了目前java日志系统事实上的标准。  </p>
+</li>
+<li><p>2002年Java1.4发布，Sun推出了自己的日志库JUL(Java Util Logging),其实现基本模仿了Log4j的实现。在JUL出来以前，Log4j就已经成为一项成熟的技术，使得Log4j在选择上占据了一定的优势。同时也造成了目前开发者的混乱，迄今为止仍饱受诟病。</p>
+</li>
+<li><p>各个日志系统互相没有关联，替换和统一变的非常麻烦。A项目用log4j作为日志系统，但同时引了B项目，而B项目用jul作为日志系统，那么你的应用就得使用两个日志系统，为了搞定这个坑爹的问题，Apache推出了Jakarta Commons Logging，JCL只是定义了一套日志接口(其内部也提供一个Simple Log的简单实现)，支持运行时动态加载日志组件的实现，也就是说，在你应用代码里，只需调用Commons Logging的接口，底层实现可以是Log4j，也可以是Java Util Logging，如果没有实现Log4j和JUL也可以使用JCL自带的simpleLog。  </p>
+</li>
+</ol>
+<p>　　　　<img src="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-1.png" alt></p>
+<ol start="4">
+<li><p>后来(2006年)，作为元老级日志log4j的作者Ceki Gülcü不适应Apache的工作方式，离开了Apache。然后先后创建了Slf4j(日志门面接口，类似于Commons Logging)和Logback(Slf4j的实现)两个项目，并回瑞典创建了QOS公司，QOS官网上是这样描述Logback的：The Generic，Reliable Fast&amp;Flexible Logging Framework(一个通用，可靠，快速且灵活的日志框架)。  </p>
+</li>
+<li><p>Apache眼看有被Logback反超的势头，于2012-07重写了Log4j 1.x，成立了新的项目Log4j 2, Log4j 2具有Logback的所有特性。</p>
+</li>
+</ol>
+<h3 id="Java日志框架、日志系统"><a href="#Java日志框架、日志系统" class="headerlink" title="Java日志框架、日志系统"></a>Java日志框架、日志系统</h3><ul>
+<li><strong>日志框架</strong>：只是一种日志接口，不负责具体的日志输出实现，而是通过配置来灵活的选择具体的日志系统。例如 jcl、slf4j 就是日志框架，它们只提供了接口，没有提供具体的日志系统实现；</li>
+<li><strong>日志系统</strong>：真正的日志实现，如 log4j、jul、logback 与 log4j2 都是具体的日志系统实现。<br>　　日志框架与系统，可以理解为 Java 中的接口与具体实现类。理想的日志使用模式是，代码中全部使用日志框架的 API 接口，在配置文件中配置具体的日志系统实现，这样可以通过配置来灵活切换不同的日志系统，而不用修改代码。<br>　　另外我们知道日志框架与日志系统是相互配合来使用，这其中会通过适配与桥接来完成。几种日志框架与系统之间的转换关系，可以用下面这张图来表示：<br>　<img src="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-5.png" alt>  </li>
+</ul>
+<a id="more"></a>
+
+<ul>
+<li><p>适配：是将当前其他的日志框架或者日志系统，最终转发到 slf4j 上。例如原系统使用 jcl，那么可以通过 jcl-over-slf4j 桥接到 slf4j 上，最终日志请求会从 jcl 转发到 slf4j 上，再适配到具体的日志实现上，最终得到日志输出。例如，spring默认使用的是jcl输出日志，由于你此时并没有引入Log4j的日志系统，jcl会以jul做为日志框架。而你的应用中，采用了slf4j+log4j-core，即log4j2进行日志记录。<br><img src="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-3.png" alt="日志框架适配">  </p>
+<p><img src="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6-4.png" alt="日志系统适配"></p>
+</li>
+<li><p>桥接：日志框架要想实现与任意日志系统结合可能需要对应的桥接器，就是选择 slf4j 具体的日志实现类，例如使用 logback-classic 会选择 logback 作为日志实现，而使用 slf4j-log4j12 会选择 log4j 作为日志实现。<br><img src="https://raw.githubusercontent.com/collinsuns/myblog-pic/master/Java%E6%97%A5%E8%87%B3%E6%A1%86%E6%9E%B6-2.jpg" alt>  </p>
+</li>
+</ul>
+<h3 id="常用日志组合配置"><a href="#常用日志组合配置" class="headerlink" title="常用日志组合配置"></a>常用日志组合配置</h3><h4 id="1-slf4j-logback"><a href="#1-slf4j-logback" class="headerlink" title="1.slf4j + logback"></a>1.slf4j + logback</h4><p>logback-classic-1.0.14.jar 会自动将 slf4j-api-1.7.21.jar 和 logback-core-1.0.14.jar 也引入到项目中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0.14&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-slf4j-log4j"><a href="#2-slf4j-log4j" class="headerlink" title="2.slf4j + log4j"></a>2.slf4j + log4j</h4><p>slf4j-log4j12-1.7.21.jar 会自动将 slf4j-api-1.7.21.jar 和 log4j-1.2.17.jar 也添加到你的项目中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.7.21&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-slf4j-java-util-logging"><a href="#3-slf4j-java-util-logging" class="headerlink" title="3.slf4j + java.util.logging"></a>3.slf4j + java.util.logging</h4><dependency>
+  <groupid>org.slf4j</groupid>
+  <artifactid>slf4j-jdk14</artifactid>
+  <version>1.7.21</version>
+</dependency>
+
+<h3 id="常用日志冲突解决"><a href="#常用日志冲突解决" class="headerlink" title="常用日志冲突解决"></a>常用日志冲突解决</h3><p>如果项目中已经使用了common-logging，但是想用slf4j的日志组件，可以通过适配模式，用jcl-over-slf4j.jar 把日志信息输出重定向到 slf4j-api，slf4j-api 再去调用 slf4j 实际依赖的日志组件</p>
+<h4 id="1-slf4j-兼容-common-logging"><a href="#1-slf4j-兼容-common-logging" class="headerlink" title="1.slf4j 兼容 common-logging"></a>1.slf4j 兼容 common-logging</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;jcl-over-slf4j&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.7.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-slf4j-兼容-log4j"><a href="#2-slf4j-兼容-log4j" class="headerlink" title="2.slf4j 兼容 log4j"></a>2.slf4j 兼容 log4j</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;log4j-over-slf4j&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.7.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-slf4j-兼容-java-util-logging"><a href="#3-slf4j-兼容-java-util-logging" class="headerlink" title="3.slf4j 兼容 java.util.logging"></a>3.slf4j 兼容 java.util.logging</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jul-to-slf4j&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.7.12&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://patchouli-know.com/2017/04/08/java-log/" target="_blank" rel="noopener">Java 日志系统梳理</a></li>
+<li><a href="https://yq.aliyun.com/articles/57769" target="_blank" rel="noopener">Java 日志系统</a></li>
+<li><a href="https://www.javazhiyin.com/27585.html" target="_blank" rel="noopener">架构师必备，带你弄清混乱的JAVA日志体系！</a></li>
+<li><a href="https://www.cnblogs.com/chenhongliang/p/5312517.html" target="_blank" rel="noopener">Java常用日志框架介绍</a></li>
+<li><a href="http://www.ixirong.com/2016/03/13/intro-to-java-log/" target="_blank" rel="noopener">混乱的 Java 日志体系</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/01/Java-移位、位与、或、异或、非/" rel="next" title="Java 移位、位与、或、异或、非">
+                <i class="fa fa-chevron-left"></i> Java 移位、位与、或、异或、非
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Steven Ke</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/collinsuns" title="GitHub &rarr; https://github.com/collinsuns" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:conllinsuns@gmail.com" title="E-Mail &rarr; mailto:conllinsuns@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java日志概述"><span class="nav-number">1.</span> <span class="nav-text">Java日志概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java常用日志框架类别"><span class="nav-number">2.</span> <span class="nav-text">Java常用日志框架类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志演化历史"><span class="nav-number">3.</span> <span class="nav-text">日志演化历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java日志框架、日志系统"><span class="nav-number">4.</span> <span class="nav-text">Java日志框架、日志系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用日志组合配置"><span class="nav-number">5.</span> <span class="nav-text">常用日志组合配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-slf4j-logback"><span class="nav-number">5.1.</span> <span class="nav-text">1.slf4j + logback</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-slf4j-log4j"><span class="nav-number">5.2.</span> <span class="nav-text">2.slf4j + log4j</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-slf4j-java-util-logging"><span class="nav-number">5.3.</span> <span class="nav-text">3.slf4j + java.util.logging</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用日志冲突解决"><span class="nav-number">6.</span> <span class="nav-text">常用日志冲突解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-slf4j-兼容-common-logging"><span class="nav-number">6.1.</span> <span class="nav-text">1.slf4j 兼容 common-logging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-slf4j-兼容-log4j"><span class="nav-number">6.2.</span> <span class="nav-text">2.slf4j 兼容 log4j</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-slf4j-兼容-java-util-logging"><span class="nav-number">6.3.</span> <span class="nav-text">3.slf4j 兼容 java.util.logging</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steven Ke</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://Steven Ke.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://yoursite.com/2019/07/28/Java日志框架/";
+    this.page.identifier = "2019/07/28/Java日志框架/";
+    this.page.title = 'Java日志框架';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://Steven Ke.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
